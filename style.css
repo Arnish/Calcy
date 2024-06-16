@@ -1,18 +1,36 @@
 #body {
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 500px;
+    height: 700px;
 }
 
+
+.etc, .anOperator, .aNum{
+    /* width: 21%; used flex: 21% instead because using just width makes the flex-grow go outside of the main container */
+    flex: 21%;
+}
+
+#zero {
+    flex-grow: 7;
+}
+/* 
 .etc {
-    display: flex;
+    display: flex; 
+    flex: 1;
 }
 
 .anOperator {
-    display: flex;
+    display: flex; 
+    flex: 1;
 }
 
 .aNum {
-    display: flex;
+    display: flex; 
+    flex: 1;
 }
+*/
 
 
 /*
