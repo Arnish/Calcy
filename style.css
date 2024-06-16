@@ -6,6 +6,9 @@
     height: 700px;
 }
 
+#display {
+    flex: 100%;
+}
 
 .etc, .anOperator, .aNum{
     /* width: 21%; used flex: 21% instead because using just width makes the flex-grow go outside of the main container */
