@@ -1,8 +1,18 @@
+#body {
+    display: flex;
+}
 
+.etc {
+    display: flex;
+}
 
+.anOperator {
+    display: flex;
+}
 
-
-
+.aNum {
+    display: flex;
+}
 
 
 /*
