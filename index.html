@@ -10,33 +10,29 @@
   </head>
 
   <body id = "body">
-    <input type="text" id="display"><br>
-    <button class= "etc"> AC </button>
-    <button class= "etc"> Negative </button>
-    <button class= "etc"> % </button>
+    <form>
+      <input type="text" id="displayBox"><br> <!-- value for text does something completely different than what it does on buttons-->
+      <input type ="button" class= "etc" value="AC"> <!-- value here just defines what text is going to be on the button-->
+      <input type ="button" class= "etc" value="Negative">
+      <input type ="button" class= "etc" value="%">
+      <input type ="button" class = "anOperator" value="/">
 
-    <button class = "anOperator"> / </button>
-    
-       
-    
-    
-
-    
-    <button class = "aNum"> 7 </button>
-    <button class = "aNum"> 8 </button>
-    <button class = "aNum"> 9 </button>
-    <button class = "anOperator"> * </button>
-    <button class = "aNum"> 4 </button>
-    <button class = "aNum"> 5 </button>
-    <button class = "aNum"> 6 </button>
-    <button class = "anOperator"> - </button> 
-    <button class = "aNum"> 1 </button>
-    <button class = "aNum"> 2 </button>
-    <button class = "aNum"> 3 </button>
-    <button class = "anOperator"> + </button>
-    <button class = "aNum", id = "zero"> 0 </button>
-    <button class = "aNum"> . </button>
-    <button class = "anOperator"> = </button>
+      <input type ="button" class = "aNum" value="7">
+      <input type ="button" class = "aNum" value="8"> 
+      <input type ="button" class = "aNum" value="9">
+      <input type ="button" class = "anOperator" value="*">
+      <input type ="button" class = "aNum" value="4">
+      <input type ="button" class = "aNum" value="5">
+      <input type ="button" class = "aNum" value="6">
+      <input type ="button" class = "anOperator" value="-"> 
+      <input type ="button" class = "aNum" value="1">
+      <input type ="button" class = "aNum" value="2">
+      <input type ="button" class = "aNum" value="3">
+      <input type ="button" class = "anOperator" value="+">
+      <input type ="button" class = "aNum", id = "zero" value="0">
+      <input type ="button" class = "aNum" value=".">
+      <input type ="button" class = "anOperator" value="=">
+    </form>
   </body>
 
 
@@ -63,9 +59,10 @@
   - give them a proper flex layout
   - edit their colors
   - edit the button hover effects
+  - make buttons functional,you can use eventlisteners for this
+  - make buttons display the input on the input area
 
-
-
-
+  - wrap the buttons in a <form> </form> to accept input easier
+  - adding the form ruined the flex formatting in css...
   -->
 </html>
