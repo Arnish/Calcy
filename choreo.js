@@ -20,10 +20,22 @@ function divider (a,b) {
     return displayBoxd.value = a/b;
 }
 
-function whenOpped (aNum) { //when numbers are pressed, store them in this array
-    firstNum.push(aNum);
+//when numbers are pressed, store them in this array //figure out how to push numbers AFTER the operator
+//nvm that was a dumb idea, just take the whole string and then break it down, ignoring the operator
+//*ok now I need to figure out how to separate multiple digited numbers... esp after the operator is clicked. EX: 894/33
+//could do store the digits before operator as one and the ones after it as another, pretty simple actually
+//detect when the operator appears in the string and split it accordingly
+function whenOpped (aString) { 
+    for (i=0; i<aString.length; i++) {
+        if (aString[i] >= 0 && aString[i] <= 9) {
+            nums.push(aString[i]);
+        } else {
+            continue;
+        }
+    }
+    console.log(nums);
 }
-function operate (firstNum, operator) {
+function operate (firstNum, operator, nextNum) {
     
     if (operator == "+"){
         return adder(a,b);
