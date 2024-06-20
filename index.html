@@ -12,7 +12,7 @@
   <body>
     <form id ="body">
       <input type="text" id="displayBox"><br> <!-- value for text does something completely different than what it does on buttons-->
-      <input type ="button" class= "etc" value="AC" onclick = "displayBox.value = '' "> <!-- resets the calc! value here just defines what text is going to be on the button-->
+      <input type ="button" class= "etc" value="AC" onclick = "clearAll()"> <!-- resets the calc! value here just defines what text is going to be on the button-->
       <input type ="button" class= "etc" value="Negative" onclick= "displayBox.value = negativeNum(displayBox.value)"> <!-- **fix this -->
       <input type ="button" class= "etc" value="%"onclick = "displayBox.value += 'REEEMAINDER' ">
       <input type ="button" class = "anOperator" value="/" onclick = "displayBox.value += '/' ">
