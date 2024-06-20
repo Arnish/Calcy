@@ -4,6 +4,7 @@ var firstNum = 0;
 var nextNum = 0;
 var operator = ""
 
+/*
 // function adder (a,b) { //not needed cause you can do all this in the last function
 //     console.log(a,b);
 //     return displayBoxd.value = a+b; //doesnt work for some reason
@@ -20,6 +21,8 @@ var operator = ""
 // function divider (a,b) {
 //     return displayBoxd.value = a/b;
 // }
+*/
+
 
 //when numbers are pressed, store them in this array //figure out how to push numbers AFTER the operator
 //nvm that was a dumb idea, just take the whole string and then break it down, ignoring the operator
@@ -79,7 +82,13 @@ function operate (a, o, b) {
 
 //functions for buttons below:
 
-
+function clearAll () {
+    nums =[];
+    firstNum = 0;
+    nextNum =0;
+    operator = "";
+    displayBoxd.value = "";
+}
 function negativeNum (a) { //return negative/positive number, fix this later // might need to grab document and return to that
     return displayBoxd.value = (a * -1); //ALL I HAD TO DO WAS ADD RETURN 
     //but now i have to figure out how i can use a variable instead, it works when i use  = (displayBoxd.value * -1) 
