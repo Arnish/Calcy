@@ -4,22 +4,22 @@ var firstNum = 0;
 var nextNum = 0;
 var operator = ""
 
-function adder (a,b) {
-    console.log(a,b);
-    return displayBoxd.value = (a+b);
-}
+// function adder (a,b) { //not needed cause you can do all this in the last function
+//     console.log(a,b);
+//     return displayBoxd.value = a+b; //doesnt work for some reason
+// }
 
-function subtracter (a,b) {
-    return displayBoxd.value = a-b;
-}
+// function subtracter (a,b) {
+//     return displayBoxd.value = a-b;
+// }
 
-function multiplier (a,b) {
-    return displayBoxd.value = a*b;
-}
+// function multiplier (a,b) {
+//     return displayBoxd.value = a*b;
+// }
 
-function divider (a,b) {
-    return displayBoxd.value = a/b;
-}
+// function divider (a,b) {
+//     return displayBoxd.value = a/b;
+// }
 
 //when numbers are pressed, store them in this array //figure out how to push numbers AFTER the operator
 //nvm that was a dumb idea, just take the whole string and then break it down, ignoring the operator
@@ -27,9 +27,9 @@ function divider (a,b) {
 //could do store the digits before operator as one and the ones after it as another, pretty simple actually
 //detect when the operator appears in the string and split it accordingly // might need to use index here instead
 function whenOpped (aString) { //when enter is pressed itll sort through and separate the two number
-    
+
     nums =[]; // resets array everytime new numbers get typed
-    for (i=0; i<=aString.length; i++) {
+    for (i=0; i<aString.length; i++) {
         if (aString[i] >= 0 && aString[i] <= 9) {
             nums.push(aString[i]);
         } 
@@ -41,14 +41,14 @@ function whenOpped (aString) { //when enter is pressed itll sort through and sep
             //continue;
         }
 
-        if (i === aString.length) { //when it reaches the end of the array, combine the remaining numbers
+        if (i === aString.length-1) { //when it reaches the end of the array, combine the remaining numbers
             nextNum =Number(nums.join("")); //store the numbers after the operator
         }
         
     }
-    console.log(firstNum, nextNum);
+    console.log(firstNum, operator, nextNum);
     //console.log(nums);
-    operate(firstNum,operator, nextNum);
+    return operate(firstNum ,operator, nextNum); //needed to return here for the operate function to work properly
 }
 
 // function storeNum (aNum) { //when numbers are pressed it will store it in an array
@@ -58,22 +58,22 @@ function whenOpped (aString) { //when enter is pressed itll sort through and sep
 // }
 
 
-function operate (a, operator, b) {
+function operate (a, o, b) {
 
-    if (operator == "+"){
-        return adder(a,b);
+    if (o == "+"){
+        return displayBoxd.value = (a+b);
     }
 
-    if (operator == "-") {
-        return subtracter(a,b);
+    if (o == "-") {
+        return displayBoxd.value = (a-b);
     }
 
-    if (operator == "*") {
-        return multiplier(a,b);
+    if (o == "*") {
+        return displayBoxd.value = (a*b);
     }
 
-    if (operator == "/") {
-        return divider(a,b);
+    if (o == "/") {
+        return displayBoxd.vlaue = (a/b);
     }
 }
 
