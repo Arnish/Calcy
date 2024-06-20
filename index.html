@@ -12,26 +12,26 @@
   <body>
     <form id ="body">
       <input type="text" id="displayBox"><br> <!-- value for text does something completely different than what it does on buttons-->
-      <input type ="button" class= "etc" value="AC"> <!-- value here just defines what text is going to be on the button-->
-      <input type ="button" class= "etc" value="Negative">
-      <input type ="button" class= "etc" value="%">
-      <input type ="button" class = "anOperator" value="/">
+      <input type ="button" class= "etc" value="AC" onclick = "displayBox.value = '' "> <!-- resets the calc! value here just defines what text is going to be on the button-->
+      <input type ="button" class= "etc" value="Negative" onclick= "displayBox.value = negativeNum(displayBox.value)"> <!-- **fix this -->
+      <input type ="button" class= "etc" value="%"onclick = "displayBox.value += 'REEEMAINDER' ">
+      <input type ="button" class = "anOperator" value="/" onclick = "displayBox.value += '/' ">
 
       <input type ="button" class = "aNum" value="7" onclick = "displayBox.value += '7' "> <!--everything after onlcick = needs to be in quotes-->
       <input type ="button" class = "aNum" value="8" onclick = "displayBox.value += '8' "> 
       <input type ="button" class = "aNum" value="9" onclick = "displayBox.value += '9' ">
-      <input type ="button" class = "anOperator" value="*">
+      <input type ="button" class = "anOperator" value="*" onclick = "displayBox.value += '*' ">
       <input type ="button" class = "aNum" value="4" onclick = "displayBox.value += '4' ">
       <input type ="button" class = "aNum" value="5" onclick = "displayBox.value += '5' ">
       <input type ="button" class = "aNum" value="6" onclick = "displayBox.value += '6' ">
-      <input type ="button" class = "anOperator" value="-"> 
+      <input type ="button" class = "anOperator" value="-" onclick = "displayBox.value += '-' "> 
       <input type ="button" class = "aNum" value="1" onclick = "displayBox.value += '1' ">
       <input type ="button" class = "aNum" value="2" onclick = "displayBox.value += '2' ">
       <input type ="button" class = "aNum" value="3" onclick = "displayBox.value += '3' ">
-      <input type ="button" class = "anOperator" value="+">
+      <input type ="button" class = "anOperator" value="+" onclick = "displayBox.value += '+' ">
       <input type ="button" class = "aNum", id = "zero" value="0" onclick = "displayBox.value += '0' ">
       <input type ="button" class = "aNum" value="." onclick = "displayBox.value += '.' ">
-      <input type ="button" class = "anOperator" value="=">
+      <input type ="button" class = "anOperator" value="=" onclick = "displayBox.value = adder(displayBox.value)">
     </form>
   </body>
 
@@ -61,7 +61,12 @@
   - edit the button hover effects
   - make buttons functional,you can use eventlisteners for this
   - make buttons display the input on the input area
+  
+  **how i fixed the negative number issue
+    - at first i had displayBox.value = negativeNum() with no argument in the function, i had to add the current displayBox.value as arg
+      - more fix logs on the JS page
 
+  - write a function for WHENEVER an operator is pressed, store previous number in one variable and then the second in another and so on    
   - wrap the buttons in a <form> </form> to accept input easier
   - adding the form ruined the flex formatting in css... //fixed this by moving the main container to <form> isntead of the body
   -->
