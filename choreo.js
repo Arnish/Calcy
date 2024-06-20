@@ -60,8 +60,8 @@ function whenOpped (aString) { //when enter is pressed itll sort through and sep
 //     }
 // }
 
-
-function operate (a, o, b) {
+//SOLVE THIS BY ADDING A SECOND DISPLAY SCREEN LIKE THE COMPUTER CALC!!!
+function operate (a, o, b) { //need to find a way to clear the display after this... how to call clearAll() after this executes
 
     if (o == "+"){
         return displayBoxd.value = (a+b);
