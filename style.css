@@ -6,8 +6,20 @@
     height: 700px;
 }
 
+#screens {
+    display: flex;
+    flex-wrap:wrap;
+    flex:100%;
+}
+
+#smallerDisplay {
+    flex:100%;
+    height: 25%;
+}
+
 #displayBox {
-    flex: 100%;
+    flex:100%;
+    height: 75%;
 }
 
 .etc, .anOperator, .aNum{
