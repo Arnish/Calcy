@@ -3,6 +3,7 @@ var nums = [];
 var firstNum = 0;
 var nextNum = 0;
 var operator = ""
+var toReset =[];
 
 /*
 // function adder (a,b) { //not needed cause you can do all this in the last function
@@ -32,6 +33,7 @@ var operator = ""
 function whenOpped (aString) { //when enter is pressed itll sort through and separate the two number
 
     nums =[]; // resets array everytime new numbers get typed
+
     for (i=0; i<aString.length; i++) {
         if (aString[i] >= 0 && aString[i] <= 9) {
             nums.push(aString[i]);
@@ -54,6 +56,23 @@ function whenOpped (aString) { //when enter is pressed itll sort through and sep
     return operate(firstNum ,operator, nextNum); //needed to return here for the operate function to work properly
 }
 
+function appendToDisplay (a) {
+    if (toReset.length > 0) { //if the reseter has a character in it, reset the display screen
+        clearAll();
+    }
+
+    return displayBoxd.value += a;
+}
+
+/* dont need this since i put it in appendToDisplay
+function resetter () { //if the reset variable isnt empty it will reset the display screen!
+    if (toReset.length > 0) {
+        clearAll();
+    }
+
+}
+*/
+
 // function storeNum (aNum) { //when numbers are pressed it will store it in an array
 //     if (aNum >=0 && aNum <= 9) {
 //         nums.push(aNum);
@@ -63,6 +82,7 @@ function whenOpped (aString) { //when enter is pressed itll sort through and sep
 //SOLVE THIS BY ADDING A SECOND DISPLAY SCREEN LIKE THE COMPUTER CALC!!!
 function operate (a, o, b) { //need to find a way to clear the display after this... how to call clearAll() after this executes
 
+    toReset.push(o); //used to reset the display screen
     if (o == "+"){
         return displayBoxd.value = (a+b);
     }
@@ -88,6 +108,7 @@ function clearAll () {
     nextNum =0;
     operator = "";
     displayBoxd.value = "";
+    toReset =[];
 }
 function negativeNum (a) { //return negative/positive number, fix this later // might need to grab document and return to that
     return displayBoxd.value = (a * -1); //ALL I HAD TO DO WAS ADD RETURN 
