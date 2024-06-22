@@ -4,6 +4,7 @@ var firstNum = 0;
 var nextNum = 0;
 var operator = ""
 var toReset =[];
+var saveOper = "";
 
 /*
 // function adder (a,b) { //not needed cause you can do all this in the last function
@@ -56,12 +57,24 @@ function whenOpped (aString) { //when enter is pressed itll sort through and sep
     return operate(firstNum ,operator, nextNum); //needed to return here for the operate function to work properly
 }
 
+//need to make sure it doesn't clear the display when an operator is pressed
 function appendToDisplay (a) {
-    if (toReset.length > 0) { //if the reseter has a character in it, reset the display screen
+    //if an operator is pressed, skip resetting | this means we have to store operators in its own variable
+
+    if (toReset.length > 0 && saveOper == "") { //if the reseter has a character in it, reset the display screen
         clearAll();
     }
 
     return displayBoxd.value += a;
+}
+
+function appendOper (a) {
+    if (a === "+" || a === "-" || a === "/" || a === "*") {
+        displayBoxd.value += a;
+        saveOper = a;
+    }
+
+
 }
 
 /* dont need this since i put it in appendToDisplay
@@ -81,7 +94,8 @@ function resetter () { //if the reset variable isnt empty it will reset the disp
 
 //SOLVE THIS BY ADDING A SECOND DISPLAY SCREEN LIKE THE COMPUTER CALC!!!
 function operate (a, o, b) { //need to find a way to clear the display after this... how to call clearAll() after this executes
-
+    
+    saveOper = ""; //used to reset the display screen
     toReset.push(o); //used to reset the display screen
     if (o == "+"){
         return displayBoxd.value = (a+b);
