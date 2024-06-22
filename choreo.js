@@ -68,10 +68,10 @@ function appendToDisplay (a) {
     return displayBoxd.value += a;
 }
 
-function appendOper (a) {
+function appendOper (a) { //operators
     if (a === "+" || a === "-" || a === "/" || a === "*") {
-        displayBoxd.value += a;
-        saveOper = a;
+        displayBoxd.value += a; //appends
+        saveOper = a; // keeps display screen from resetting even after an equation executes
     }
 
 
