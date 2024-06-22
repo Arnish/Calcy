@@ -18,21 +18,21 @@
       <input type ="button" class= "etc" value="AC" onclick = "clearAll()"> <!-- resets the calc! value here just defines what text is going to be on the button-->
       <input type ="button" class= "etc" value="Negative" onclick= "displayBox.value = negativeNum(displayBox.value)"> <!-- **fix this -->
       <input type ="button" class= "etc" value="%"onclick = "displayBox.value += 'REEEMAINDER' ">
-      <input type ="button" class = "anOperator" value="/" onclick = "displayBox.value += '/' ">
+      <input type ="button" class = "anOperator" value="/" onclick = "appendOper('/') ">
 
       <input type ="button" class = "aNum" value="7" onclick = "appendToDisplay('7') "> <!--everything after onlcick = needs to be in quotes-->
-      <input type ="button" class = "aNum" value="8" onclick = "displayBox.value += '8' "> 
-      <input type ="button" class = "aNum" value="9" onclick = "displayBox.value += '9' ">
-      <input type ="button" class = "anOperator" value="*" onclick = "displayBox.value += '*' ">
-      <input type ="button" class = "aNum" value="4" onclick = "displayBox.value += '4' ">
-      <input type ="button" class = "aNum" value="5" onclick = "displayBox.value += '5' ">
-      <input type ="button" class = "aNum" value="6" onclick = "displayBox.value += '6' ">
-      <input type ="button" class = "anOperator" value="-" onclick = "displayBox.value += '-' "> 
-      <input type ="button" class = "aNum" value="1" onclick = "displayBox.value += '1' ">
-      <input type ="button" class = "aNum" value="2" onclick = "displayBox.value += '2' ">
-      <input type ="button" class = "aNum" value="3" onclick = "displayBox.value += '3' ">
-      <input type ="button" class = "anOperator" value="+" onclick = "displayBox.value += '+' ">
-      <input type ="button" class = "aNum", id = "zero" value="0" onclick = "displayBox.value += '0' ">
+      <input type ="button" class = "aNum" value="8" onclick = "appendToDisplay('8') "> 
+      <input type ="button" class = "aNum" value="9" onclick = "appendToDisplay('9') ">
+      <input type ="button" class = "anOperator" value="*" onclick = "appendOper('*') ">
+      <input type ="button" class = "aNum" value="4" onclick = "appendToDisplay('4') ">
+      <input type ="button" class = "aNum" value="5" onclick = "appendToDisplay('5') ">
+      <input type ="button" class = "aNum" value="6" onclick = "appendToDisplay('6') ">
+      <input type ="button" class = "anOperator" value="-" onclick = "appendOper('-') "> 
+      <input type ="button" class = "aNum" value="1" onclick = "appendToDisplay('1') ">
+      <input type ="button" class = "aNum" value="2" onclick = "appendToDisplay('2') ">
+      <input type ="button" class = "aNum" value="3" onclick = "appendToDisplay('3') ">
+      <input type ="button" class = "anOperator" value="+" onclick = "appendOper('+') ">
+      <input type ="button" class = "aNum", id = "zero" value="0" onclick = "appendToDisplay('0') ">
       <input type ="button" class = "aNum" value="." onclick = "displayBox.value += '.' ">
       <input type ="button" class = "anOperator" value="=" onclick = "displayBox.value = whenOpped(displayBox.value)">
     </form>
