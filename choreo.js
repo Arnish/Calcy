@@ -50,8 +50,8 @@ function whenOpped (aString) { //when enter is pressed itll sort through and sep
             operator = aString[i]; //store the operator
             
             firstNum = Number(nums.join(""));
-            if (aString[0] === "-") { //if the number was a negative
-                firstNum = firstNum * -1;
+            if (aString[0] === "-") { //if the number was a negative, detected by a negative sign before the number
+                firstNum = firstNum * -1; //return the number as a negative number
             }
             nums =[]; //resets the array so only second portion gets stored next
             //continue;
