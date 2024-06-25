@@ -1,3 +1,6 @@
+// try to get into practice of not using global variables often, at the end od this proj try and figure out how to 
+// make each a local variable
+
 const displayBoxd = document.getElementById("displayBox");
 var nums = [];
 var firstNum = 0;
@@ -5,6 +8,7 @@ var nextNum = 0;
 var operator = ""
 var toReset =[];
 var saveOper = "";
+var replaceOper =[];
 
 /*
 // function adder (a,b) { //not needed cause you can do all this in the last function
@@ -61,17 +65,35 @@ function whenOpped (aString) { //when enter is pressed itll sort through and sep
 function appendToDisplay (a) {
     //if an operator is pressed, skip resetting | this means we have to store operators in its own variable
 
-    if (toReset.length > 0 && saveOper == "") { //if the reseter has a character in it, reset the display screen
+    if (toReset.length > 0 && saveOper == "") { //if the reseter was initalized via = button function, reset the display screen
         clearAll();
     }
 
     return displayBoxd.value += a;
 }
 
-function appendOper (a) { //operators
-    if (a === "+" || a === "-" || a === "/" || a === "*") {
-        displayBoxd.value += a; //appends
+
+//replacing the operator here is a little tricky
+// I might need to convert the display screen to an array and replace the operator using its index that way
+function appendOper (a) { //operators , need to make it so only one operator can be pressed at a time
+
+    if (saveOper === "+" || saveOper === "-" || saveOper === "/" || saveOper === "*") { //if saveOper alr exists
+        replaceOper = [];
+        //****NEED TO FIX THIS FIGURE IT OUT, IT KEEPS RESETTING SO CHECK THE RESET AREA FOR HINTS
+        for (i=0; i< displayBoxd.value.length; i++) {
+            replaceOper.push(displayBoxd.value[i]);
+            if (displayBoxd.value[i] === "+" || displayBoxd.value[i] === "-" || displayBoxd.value[i] === "/" || displayBoxd.value[i] === "*") {
+                replaceOper[i] = a;
+            }
+        }
+        //console.log(replaceOper);
+        saveOper = a; // replace the old saveOper with the new one
+        displayBoxd.value = replaceOper.join("");
+        //displayBoxd.value = saveOper;
+    } else if (a === "+" || a === "-" || a === "/" || a === "*") { //if a is an operator
+        
         saveOper = a; // keeps display screen from resetting even after an equation executes
+        displayBoxd.value += a; //appends
     }
 
 
@@ -96,7 +118,7 @@ function resetter () { //if the reset variable isnt empty it will reset the disp
 function operate (a, o, b) { //need to find a way to clear the display after this... how to call clearAll() after this executes
     
     saveOper = ""; //used to reset the display screen
-    toReset.push(o); //used to reset the display screen
+    toReset.push(o); //used to reset the display screen, if it has a value in it it means the equal button was pressed and the next number pressed will reset display screen
     if (o == "+"){
         return displayBoxd.value = (a+b);
     }
@@ -124,6 +146,8 @@ function clearAll () {
     displayBoxd.value = "";
     toReset =[];
 }
+
+//negatives dont really work,  its just visual for some reason
 function negativeNum (a) { //return negative/positive number, fix this later // might need to grab document and return to that
     return displayBoxd.value = (a * -1); //ALL I HAD TO DO WAS ADD RETURN 
     //but now i have to figure out how i can use a variable instead, it works when i use  = (displayBoxd.value * -1) 
