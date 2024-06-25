@@ -35,18 +35,24 @@ var replaceOper =[];
 //*ok now I need to figure out how to separate multiple digited numbers... esp after the operator is clicked. EX: 894/33
 //could do store the digits before operator as one and the ones after it as another, pretty simple actually
 //detect when the operator appears in the string and split it accordingly // might need to use index here instead
+//detect whether or not number is negative****
 function whenOpped (aString) { //when enter is pressed itll sort through and separate the two number
 
     nums =[]; // resets array everytime new numbers get typed
 
     for (i=0; i<aString.length; i++) {
-        if (aString[i] >= 0 && aString[i] <= 9) {
+        //console.log(aString[i]);
+        if (aString[i] >= -9 && aString[i] <= 9) {
             nums.push(aString[i]);
-        } 
+        }
         
         if (aString[i] == "+" || aString[i] == "-" || aString[i] == "/" || aString[i] =="*") {
             operator = aString[i]; //store the operator
+            
             firstNum = Number(nums.join(""));
+            if (aString[0] === "-") { //if the number was a negative
+                firstNum = firstNum * -1;
+            }
             nums =[]; //resets the array so only second portion gets stored next
             //continue;
         }
@@ -54,7 +60,6 @@ function whenOpped (aString) { //when enter is pressed itll sort through and sep
         if (i === aString.length-1) { //when it reaches the end of the array, combine the remaining numbers
             nextNum =Number(nums.join("")); //store the numbers after the operator
         }
-        
     }
     console.log(firstNum, operator, nextNum);
     //console.log(nums);
@@ -145,6 +150,8 @@ function clearAll () {
     operator = "";
     displayBoxd.value = "";
     toReset =[];
+    saveOper = "";
+    replaceOper=[];
 }
 
 //negatives dont really work,  its just visual for some reason
