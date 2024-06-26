@@ -40,14 +40,14 @@ var idxOper = "";
 function whenOpped (aString) { //when enter is pressed itll sort through and separate the two number
     idxOper = ""; //find operators index for 2nd negative numb
     nums =[]; // resets array everytime new numbers get typed
-
+    operator = ""; //for some reason didnt reset with everything in clearall...
     for (i=0; i<aString.length; i++) {
         //console.log(aString[i]);
         if (aString[i] >= 0 && aString[i] <= 9) {
             nums.push(aString[i]);
         }
         
-        if (operator == "") {
+        if (operator == "") { //so it doesnt repeat the negative symbol for negative numbers
             if (aString[i] == "+" || aString[i] == "-" || aString[i] == "/" || aString[i] =="*") { //THIS IS WHERE THE BUG IS FROM ****, this also stores the - as the new operator...
                 operator = aString[i]; //store the operator
                 idxOper = (aString.indexOf(operator)); //index so we can get the negative sign (after the operator)
@@ -170,6 +170,7 @@ function clearAll () {
     saveOper = "";
     replaceOper=[];
     negNum =[];
+    idxOper ="";
     //negnumJoined ="";
 }
 
