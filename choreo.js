@@ -9,6 +9,7 @@ var operator = ""
 var toReset =[];
 var saveOper = "";
 var replaceOper =[];
+var negNum=[];
 
 /*
 // function adder (a,b) { //not needed cause you can do all this in the last function
@@ -59,6 +60,9 @@ function whenOpped (aString) { //when enter is pressed itll sort through and sep
 
         if (i === aString.length-1) { //when it reaches the end of the array, combine the remaining numbers
             nextNum =Number(nums.join("")); //store the numbers after the operator
+            if (aString[0] === "-") { //if the number was a negative, detected by a negative sign before the number
+                nextNum = nextNum * -1; //return the number as a negative number
+            }
         }
     }
     console.log(firstNum, operator, nextNum);
@@ -100,8 +104,6 @@ function appendOper (a) { //operators , need to make it so only one operator can
         saveOper = a; // keeps display screen from resetting even after an equation executes
         displayBoxd.value += a; //appends
     }
-
-
 }
 
 /* dont need this since i put it in appendToDisplay
@@ -152,10 +154,30 @@ function clearAll () {
     toReset =[];
     saveOper = "";
     replaceOper=[];
+    negNum =[];
+    //negnumJoined ="";
 }
 
 //negatives dont really work,  its just visual for some reason
 function negativeNum (a) { //return negative/positive number, fix this later // might need to grab document and return to that
+
+    if (saveOper != "") { //if an operator is clicked before negating
+        let negnumJoined = "";
+        let nextNeg = "";
+        negNum =[];
+        for (i=0; i<a.length; i++){
+            negNum.push(a[i]);
+            if (a[i] === saveOper) { //when it reaches the operator in the array
+                negnumJoined = negNum.join("");
+                negNum=[];
+                console.log(negnumJoined);
+                //return displayBoxd.value = negnumJoined;
+            }
+            nextNeg = negNum.join("");
+            console.log("this is negas: ", nextNeg); //this works, no need tokeep testing it
+        }
+        return displayBoxd.value = negnumJoined + (nextNeg * -1);
+    }
     return displayBoxd.value = (a * -1); //ALL I HAD TO DO WAS ADD RETURN 
     //but now i have to figure out how i can use a variable instead, it works when i use  = (displayBoxd.value * -1) 
 }
