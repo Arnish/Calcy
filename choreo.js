@@ -10,7 +10,7 @@ var toReset =[];
 var saveOper = "";
 var replaceOper =[];
 var negNum=[];
-
+var idxOper = "";
 /*
 // function adder (a,b) { //not needed cause you can do all this in the last function
 //     console.log(a,b);
@@ -38,30 +38,45 @@ var negNum=[];
 //detect when the operator appears in the string and split it accordingly // might need to use index here instead
 //detect whether or not number is negative****
 function whenOpped (aString) { //when enter is pressed itll sort through and separate the two number
-
+    idxOper = ""; //find operators index for 2nd negative numb
     nums =[]; // resets array everytime new numbers get typed
 
     for (i=0; i<aString.length; i++) {
         //console.log(aString[i]);
-        if (aString[i] >= -9 && aString[i] <= 9) {
+        if (aString[i] >= 0 && aString[i] <= 9) {
             nums.push(aString[i]);
         }
         
-        if (aString[i] == "+" || aString[i] == "-" || aString[i] == "/" || aString[i] =="*") {
-            operator = aString[i]; //store the operator
-            
-            firstNum = Number(nums.join(""));
-            if (aString[0] === "-") { //if the number was a negative, detected by a negative sign before the number
-                firstNum = firstNum * -1; //return the number as a negative number
-            }
-            nums =[]; //resets the array so only second portion gets stored next
-            //continue;
-        }
+        if (operator == "") {
+            if (aString[i] == "+" || aString[i] == "-" || aString[i] == "/" || aString[i] =="*") { //THIS IS WHERE THE BUG IS FROM ****, this also stores the - as the new operator...
+                operator = aString[i]; //store the operator
+                idxOper = (aString.indexOf(operator)); //index so we can get the negative sign (after the operator)
+                //console.log("idx is: ", idxOper);
+                firstNum = Number(nums.join(""));
 
+                if (aString[0] === "-") { //if the number was a negative, detected by a negative sign before the number
+                    firstNum = firstNum * -1; //return the number as a negative number
+                }
+                nums =[]; //resets the array so only second portion gets stored next
+                //continue;
+            }
+    }
+
+        //console.log(idxOper);
+
+        //for second portion
+        //if a the character after the operator is a negative, then return a negative number
+        //find index of operator first
         if (i === aString.length-1) { //when it reaches the end of the array, combine the remaining numbers
             nextNum =Number(nums.join("")); //store the numbers after the operator
-            if (aString[0] === "-") { //if the number was a negative, detected by a negative sign before the number
+            //console.log(nextNum);
+            console.log("idx is: ", idxOper);
+            console.log("the string is: ", aString);
+            console.log(aString[idxOper]);
+            if (aString[idxOper+1] === "-") { //if the number was a negative, detected by a negative sign before the number
+                //console.log(idxOper);
                 nextNum = nextNum * -1; //return the number as a negative number
+                console.log(firstNum); //for some reason this resets the firstnum to 0?
             }
         }
     }
@@ -161,7 +176,7 @@ function clearAll () {
 //negatives dont really work,  its just visual for some reason
 function negativeNum (a) { //return negative/positive number, fix this later // might need to grab document and return to that
 
-    if (saveOper != "") { //if an operator is clicked before negating
+    if (saveOper != "") { //if an operator is clicked before negating //this whole thins below is for the 2nd half the equation
         let negnumJoined = "";
         let nextNeg = "";
         negNum =[];
@@ -170,15 +185,15 @@ function negativeNum (a) { //return negative/positive number, fix this later // 
             if (a[i] === saveOper) { //when it reaches the operator in the array
                 negnumJoined = negNum.join("");
                 negNum=[];
-                console.log(negnumJoined);
+                //console.log(negnumJoined);
                 //return displayBoxd.value = negnumJoined;
             }
             nextNeg = negNum.join("");
-            console.log("this is negas: ", nextNeg); //this works, no need tokeep testing it
+            //console.log("this is negas: ", nextNeg); //this works, no need tokeep testing it
         }
         return displayBoxd.value = negnumJoined + (nextNeg * -1);
     }
-    return displayBoxd.value = (a * -1); //ALL I HAD TO DO WAS ADD RETURN 
+    return displayBoxd.value = (a * -1); //ALL I HAD TO DO WAS ADD RETURN //this returns the first portion of the equation
     //but now i have to figure out how i can use a variable instead, it works when i use  = (displayBoxd.value * -1) 
 }
 
