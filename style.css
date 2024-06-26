@@ -1,9 +1,27 @@
+html {
+    background-color: #393D3F;
+}
+
+
 #body {
+    /*margin: auto; centers horizontally only, doesnt work with positon:absolute though*/
+    margin: 0; /*from here to transform: translate is just one copy pasta to center both horiz and vertic*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     width: 500px;
     height: 700px;
+    background-color: #546A7B;
+    /*border: */
+    border-style: solid;
+    border-width: 10px;
+    border-color: #546A7B;
+    border-radius: 10px;
 }
 
 #screens {
@@ -12,41 +30,57 @@
     flex:100%;
 }
 
-#smallerDisplay {
-    flex:100%;
-    height: 25%;
-}
-
 #displayBox {
+    border-color: white;
+    border-radius: 10px;
+    color: white;
+    text-align: right;
+    font-size: 20px;
+    background-color: #546A7B;
     flex:100%;
-    height: 75%;
+    height: 100%;
 }
 
 .etc, .anOperator, .aNum{
     /* width: 21%; used flex: 21% instead because using just width makes the flex-grow go outside of the main container */
+    color:#393D3F;
+    border-radius: 10px;
+    font-size: 20px;
     flex: 21%;
 }
 
 #zero {
     flex-grow: 7;
 }
-/* 
+
 .etc {
-    display: flex; 
-    flex: 1;
+   background-color: #62929E;
 }
 
 .anOperator {
-    display: flex; 
-    flex: 1;
+    background-color: #62929E;
 }
 
 .aNum {
-    display: flex; 
-    flex: 1;
+    background-color: #C6C5B9;
 }
-*/
 
+.etc:hover, .anOperator:hover {
+    color:white;
+    background-color: #546A7B;
+}
+
+.aNum:hover {
+    color: white;
+    background-color: #A3A28F;
+}
+
+#equals {
+    background-color: lightsalmon;
+}
+#equals:hover {
+    background-color: salmon;
+}
 
 /*
 -
