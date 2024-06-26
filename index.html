@@ -12,7 +12,6 @@
   <body>
     <form id ="body">
       <div id ="screens">
-      <input type="text" id="smallerDisplay">
       <input type="text" id="displayBox"> <!-- value for text does something completely different than what it does on buttons-->
       </div>
       <input type ="button" class= "etc" value="AC" onclick = "clearAll()"> <!-- resets the calc! value here just defines what text is going to be on the button-->
@@ -34,7 +33,7 @@
       <input type ="button" class = "anOperator" value="+" onclick = "appendOper('+') ">
       <input type ="button" class = "aNum", id = "zero" value="0" onclick = "appendToDisplay('0') ">
       <input type ="button" class = "aNum" value="." onclick = "displayBox.value += '.' ">
-      <input type ="button" class = "anOperator" value="=" onclick = "displayBox.value = whenOpped(displayBox.value)">
+      <input type ="button" id = "equals" class = "anOperator" value="=" onclick = "displayBox.value = whenOpped(displayBox.value)">
     </form>
   </body>
 
